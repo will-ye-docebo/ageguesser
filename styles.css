@@ -1,0 +1,231 @@
+:root {
+  --bg-top: #f4efe3;
+  --bg-mid: #e8eef2;
+  --bg-bottom: #dbd4c5;
+  --ink: #1f2a30;
+  --muted: #556069;
+  --panel: rgba(248, 247, 241, 0.82);
+  --panel-border: rgba(31, 42, 48, 0.12);
+  --accent: #a6522f;
+  --accent-soft: #de8d57;
+  --success: #2f6758;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Sora", "Avenir Next", "Trebuchet MS", sans-serif;
+  color: var(--ink);
+  background: linear-gradient(150deg, var(--bg-top), var(--bg-mid) 55%, var(--bg-bottom));
+  overflow-x: hidden;
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.6;
+  background-image:
+    radial-gradient(520px 280px at 10% 8%, rgba(243, 168, 114, 0.28), transparent 80%),
+    radial-gradient(380px 240px at 88% 12%, rgba(79, 132, 152, 0.22), transparent 72%),
+    radial-gradient(460px 320px at 70% 92%, rgba(88, 113, 84, 0.2), transparent 75%);
+}
+
+.app {
+  width: min(1080px, 94vw);
+  margin: 2rem auto 2.5rem;
+  position: relative;
+}
+
+.topbar {
+  margin-bottom: 1.4rem;
+  animation: rise 0.6s ease-out;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.76rem;
+  color: var(--muted);
+  margin: 0;
+}
+
+h1,
+h2 {
+  margin: 0.35rem 0 0.45rem;
+  font-family: "Fraunces", Georgia, serif;
+  line-height: 1.1;
+}
+
+h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+h2 {
+  font-size: clamp(2.1rem, 5vw, 3.2rem);
+}
+
+.subtitle {
+  margin: 0;
+  color: var(--muted);
+  max-width: 58ch;
+}
+
+.game-card,
+.result-card {
+  border: 1px solid var(--panel-border);
+  border-radius: 24px;
+  background: var(--panel);
+  backdrop-filter: blur(8px);
+  box-shadow:
+    0 18px 40px rgba(31, 42, 48, 0.09),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  padding: clamp(1rem, 2vw, 1.4rem);
+}
+
+.status-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+#roundLabel {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.progress-track {
+  width: min(380px, 58%);
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(31, 42, 48, 0.08);
+  overflow: hidden;
+}
+
+#progressBar {
+  height: 100%;
+  width: 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-soft));
+  transition: width 260ms ease;
+}
+
+.prompt {
+  font-size: 1.05rem;
+  margin: 0.8rem 0 1rem;
+}
+
+.choices {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.choice {
+  border: 2px solid rgba(31, 42, 48, 0.16);
+  background: rgba(252, 251, 247, 0.9);
+  border-radius: 18px;
+  padding: 0.6rem;
+  display: grid;
+  gap: 0.55rem;
+  cursor: pointer;
+  transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.choice:hover {
+  transform: translateY(-3px);
+  border-color: rgba(166, 82, 47, 0.58);
+  box-shadow: 0 8px 22px rgba(166, 82, 47, 0.15);
+}
+
+.choice.selected {
+  border-color: var(--accent);
+  box-shadow: 0 10px 24px rgba(166, 82, 47, 0.22);
+}
+
+.choice canvas {
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  border: 1px solid rgba(31, 42, 48, 0.09);
+  display: block;
+}
+
+.choice span {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.hint {
+  margin: 0.9rem 0 0;
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+.result-card {
+  margin-top: 1rem;
+  animation: rise 0.5s ease-out;
+}
+
+.confidence {
+  color: var(--success);
+  font-weight: 600;
+  margin: 0.4rem 0;
+}
+
+.explanation {
+  margin: 0.1rem 0 1rem;
+  color: var(--muted);
+  max-width: 64ch;
+}
+
+.replay {
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(120deg, var(--accent), #7f3f24);
+  color: #fff8f2;
+  font-weight: 700;
+  padding: 0.72rem 1.2rem;
+  cursor: pointer;
+  transition: transform 160ms ease, filter 160ms ease;
+}
+
+.replay:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.03);
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 860px) {
+  .choices {
+    grid-template-columns: 1fr;
+  }
+
+  .choice span {
+    text-align: left;
+  }
+
+  .progress-track {
+    width: min(260px, 54%);
+  }
+}
