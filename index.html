@@ -11,16 +11,21 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="words.css" />
   </head>
   <body>
     <div class="backdrop"></div>
     <main class="app" aria-live="polite">
       <header class="topbar">
-        <p class="eyebrow">Age Guesser</p>
+        <p class="eyebrow">Age Guesser built by Will Ye, for fun only.</p>
         <h1>Perception Study</h1>
         <p class="subtitle">
           Pick the image you prefer in each round. After a short sequence, we estimate your age band.
         </p>
+        <nav class="mode-switch" aria-label="Game mode">
+          <a class="mode-link active" href="index.html">Image Game</a>
+          <a class="mode-link" href="words.html">Word Game</a>
+        </nav>
       </header>
 
       <section class="game-card" id="gameCard">

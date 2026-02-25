@@ -5,7 +5,10 @@ After the final round, the game estimates a **5-year age band**.
 
 ## Run
 
-Open `index.html` in any modern browser.
+Open either page in any modern browser:
+
+- `index.html` for the image-based game.
+- `words.html` for the 7-round word-based game that estimates age in-browser.
 
 ## How It Works
 
@@ -20,3 +23,6 @@ Open `index.html` in any modern browser.
 
 - This is an entertainment/prototype inference model, not a clinical or scientific age test.
 - Press `A`/left arrow for left image and `L`/right arrow for right image.
+- In the word game, use the same `A`/left and `L`/right controls.
+- The word game runs entirely in-browser and does not call external APIs.
+- API key placeholder file: `.env.local` (`OPENAI_API_KEY=`).

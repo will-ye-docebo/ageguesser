@@ -1,0 +1,93 @@
+.mode-switch {
+  margin-top: 0.95rem;
+  display: flex;
+  gap: 0.55rem;
+  flex-wrap: wrap;
+}
+
+.mode-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid rgba(31, 42, 48, 0.22);
+  padding: 0.45rem 0.9rem;
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.85rem;
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.mode-link:hover {
+  border-color: rgba(166, 82, 47, 0.58);
+}
+
+.mode-link.active {
+  background: linear-gradient(120deg, var(--accent), #7f3f24);
+  border-color: transparent;
+  color: #fff8f2;
+}
+
+.word-choices {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.word-choice {
+  border: 2px solid rgba(31, 42, 48, 0.15);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.72);
+  padding: 1.1rem 0.95rem;
+  display: grid;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.word-choice:hover {
+  transform: translateY(-2px);
+  border-color: rgba(166, 82, 47, 0.58);
+  box-shadow: 0 8px 18px rgba(166, 82, 47, 0.16);
+}
+
+.word-choice.selected {
+  border-color: var(--accent);
+  box-shadow: 0 9px 22px rgba(166, 82, 47, 0.2);
+}
+
+.token {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: clamp(1.7rem, 4.1vw, 2.5rem);
+  line-height: 1;
+  letter-spacing: 0.01em;
+}
+
+.pick-label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.result-intro {
+  margin: 0.2rem 0 0.9rem;
+  color: var(--muted);
+}
+
+.result-actions {
+  margin-top: 0.85rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.result-card .replay {
+  margin-top: 0.4rem;
+}
+
+@media (max-width: 860px) {
+  .word-choices {
+    grid-template-columns: 1fr;
+  }
+}
